@@ -4,7 +4,8 @@
   "description": "Run async polling request",
   "files": [
     "*.md",
-    "dist"
+    "dist",
+    "src"
   ],
   "main": "dist/polling-request",
   "jsnext:main": "src/polling-request",
