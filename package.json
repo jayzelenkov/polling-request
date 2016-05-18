@@ -1,6 +1,6 @@
 {
   "name": "polling-request",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Run async polling request",
   "main": "dist/polling-request",
   "repository": {
