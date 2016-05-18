@@ -2,7 +2,7 @@
   "name": "polling-request",
   "version": "1.0.0",
   "description": "Run async polling request",
-  "main": "dist",
+  "main": "dist/polling-request",
   "repository": {
     "type": "git",
     "url": "https://github.com/jzelenkov/polling-request.git"

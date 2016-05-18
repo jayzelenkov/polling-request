@@ -7,6 +7,7 @@ import _ from 'lodash'
 const DEFAULT_MAX_RETRIES = 10
 const DEFAULT_INTERVAL = 1 * 60 * 1000
 const DEFAULT_VERBOSE = false
+const DEFAULT_REQ_OPTS = { method: 'GET', json: true }
 
 const getJSON = (url, opts) =>
   new Promise((resolve, reject) => {
@@ -28,15 +29,16 @@ const buildConfig = (configObj) => {
   config.verbose = configObj && !!configObj.verbose || DEFAULT_VERBOSE
   config.interval = configObj && configObj.interval || DEFAULT_INTERVAL
   config.maxRetries = configObj && configObj.maxRetries || DEFAULT_MAX_RETRIES
+  config.requestOptions = configObj && configObj.requestOptions || DEFAULT_REQ_OPTS
   return config
 }
 
-const pollingRequest = (url, opts, expect, configObj) =>
+const pollingRequest = (url, expect, configObj) =>
   new Promise(async (resolve, reject) => {
     const config = buildConfig(configObj)
 
     let retryCounter = 1
-    let response = await getJSON(url, opts)
+    let response = await getJSON(url, config.requestOptions)
     let isMatch = _.isMatch(response, expect)
 
     // early return if initial call matched the expected response
@@ -44,7 +46,7 @@ const pollingRequest = (url, opts, expect, configObj) =>
 
     while (!isMatch && retryCounter < config.maxRetries) {
       await timeout(config.interval)
-      response = await getJSON(url, opts)
+      response = await getJSON(url, config.requestOptions)
       if (config.verbose) console.log('        response: ', response)
       isMatch = _.isMatch(response, expect)
       if (config.verbose) console.log(`        polling ${retryCounter}/${config.maxRetries}: ${isMatch}`)

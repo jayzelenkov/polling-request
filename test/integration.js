@@ -20,7 +20,7 @@ describe('polling-request integration tests', () => {
     it('should match expected JSON on second try', async () => {
       const expectJSON = { status: 'FINISHED' }
       try {
-        const response = await request('http://localhost:3000/jobs/1', { method: 'GET', json: true }, expectJSON, config)
+        const response = await request('http://localhost:3000/jobs/1', expectJSON, config)
         expect(response).to.eql(Object.assign({ jobId: 1 }, expectJSON))
       } catch (err) {
         expect(err).to.not.exist
@@ -30,7 +30,7 @@ describe('polling-request integration tests', () => {
     it('should return expected ERROR state', async () => {
       const expectJSON = { status: 'ERROR' }
       try {
-        const response = await request('http://localhost:3000/jobs/2', { method: 'GET', json: true }, expectJSON, config)
+        const response = await request('http://localhost:3000/jobs/2', expectJSON, config)
         expect(response).to.eql(Object.assign({ jobId: 2 }, expectJSON))
       } catch (err) {
         expect(err).to.not.exist
@@ -43,7 +43,7 @@ describe('polling-request integration tests', () => {
       const expectJSON = { status: 'FINISHED' }
       try {
         // throws a timeout error
-        await request('http://localhost:3000/jobs/3', { method: 'GET', json: true }, expectJSON, config)
+        await request('http://localhost:3000/jobs/3', expectJSON, config)
       } catch (err) {
         expect(err).to.exist
         expect(err).to.be.an.instanceof(Error)
