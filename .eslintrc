@@ -1,0 +1,21 @@
+{
+  "extends": "airbnb",
+  "parser": "babel-eslint",
+  "rules": {
+    "array-bracket-spacing": [2, "always"],
+    "comma-dangle": 0,
+    "curly": 0,
+    "eqeqeq": [2, "smart"],
+    "max-len": ["error", 120, 4],
+    "no-confusing-arrow": 0,
+    "no-console": ["error", { allow: ["warn", "error", "info"] }],
+    "no-param-reassign": 0,
+    "no-return-assign": 0,
+    "no-use-before-define": 0,
+    "prefer-const": 1,
+    "prefer-template": 0,
+    "one-var": 0,
+    "one-var-declaration-per-line": 0,
+    "semi": [2, "never"]
+  }
+}
