@@ -1,4 +1,4 @@
-# polling-request [![Travis][build-badge]][build] [![npm package][npm-badge]][npm]
+# polling-request [![Travis][build-badge]][build] [![Circle][circle-build-badge]][circle-build] [![npm package][npm-badge]][npm]
 
 A simple way to query async APIs.
 
@@ -48,6 +48,9 @@ MIT
 
 [build-badge]: https://img.shields.io/travis/jzelenkov/polling-request/master.svg?style=flat-square
 [build]: https://travis-ci.org/jzelenkov/polling-request
+
+[circle-build-badge]: https://img.shields.io/circleci/project/jzelenkov/polling-request/master.svg?style=flat-square
+[circle-build]: https://circleci.com/gh/jzelenkov/polling-request
 
 [npm-badge]: https://img.shields.io/npm/v/polling-request.svg?style=flat-square
 [npm]: https://www.npmjs.org/package/polling-request

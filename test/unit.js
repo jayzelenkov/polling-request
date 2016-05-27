@@ -1,9 +1,7 @@
 /* eslint-env node, mocha */
 /* eslint-disable no-unused-expressions */
 require('babel-polyfill')
-import chai, { expect } from 'chai'
-import spies from 'chai-spies'
-chai.use(spies)
+import { expect } from 'chai'
 import request from '../dist/polling-request'
 
 describe('polling-request unit tests', () => {
