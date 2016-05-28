@@ -40,6 +40,10 @@ promise.then(response => {
 })
 ```
 
+## TODOs
+
+- [ ] add optional parameter that defines failing JSON. Ex: `{ status: 'ERROR' }`. This allows `polling-request` to fail fast without waiting for the timeout
+
 
 ## License
 
